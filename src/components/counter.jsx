@@ -23,22 +23,27 @@ const Counter = () => {
     console.log(productId);
     setCount(count + 1);
   };
-
-  const renderTags = () => {
-    if (tags.length === 0) return "Тегов не найдено";
-    return tags.map((tag) => <li key={tag}>{tag}</li>);
+  const handleDecrement = (productId) => {
+    console.log(productId);
+    if (count > 0) {
+      setCount(count - 1);
+    }
   };
 
   return (
     <React.Fragment>
-      {tags.maplength === 0 && "Тегов не найдено"}
-      {renderTags()}
       <span className={getBageclasses()}>{formCount()}</span>
       <button
         onClick={() => handleIncrement({ id: 1 })}
         className="btn btn-secondary btn-sm"
       >
         Increment
+      </button>
+      <button
+        onClick={() => handleDecrement({ id: 2 })}
+        className="btn btn-secondary btn-sm m-2"
+      >
+        Decrement
       </button>
     </React.Fragment>
   );
